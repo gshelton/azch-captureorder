@@ -43,12 +43,12 @@ stages:
     value: 'dev'
       
   jobs:
-  - deployment: DeployDev
-    displayName: Deploy to dev job
+  - deployment: DebioTestploy
+    displayName: Deploy to Debio test job
     pool:
       vmImage: ubuntu-latest
 
-    environment: 'DebioDeployTest' # name of the environment to target [env name.namespace]. This will pull in the Kubernetes service connection automatically
+    environment: 'DebioDeployTest.debiodev' # name of the environment to target [env name.namespace]. This will pull in the Kubernetes service connection automatically
 
     strategy:
       runOnce:
