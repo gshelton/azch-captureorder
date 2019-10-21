@@ -35,7 +35,7 @@ stages:
         targetPath: 'manifests'
 
 - stage: DeployDev
-  displayName: Deploy to dev stage
+  displayName: Deploy to debiodev stage
   dependsOn: Build
 
   variables:
