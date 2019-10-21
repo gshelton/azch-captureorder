@@ -1,12 +1,12 @@
 variables:
   
-  - group: captureorder-variables # Variable Group containing 'mongoHost', 'mongoUser' and the secret 'mongoPassword'
+  - group: 'captureorder-variables' # Variable Group containing 'mongoHost', 'mongoUser' and the secret 'mongoPassword'
 
   - name: dockerRegistryServiceConnection
-    value: containerRegistryConnection # make sure it matches the name you used in the service connection
+    value: 'containerRegistryConnection' # make sure it matches the name you used in the service connection
   
   - name: acrEndpoint
-    value: extrepo.azurecr.io # replace with container registry endpoint
+    value: 'extrepo.azurecr.io' # replace with container registry endpoint
 
   - name: tag
     value: '$(Build.BuildId)'
@@ -39,16 +39,16 @@ stages:
   dependsOn: Build
 
   variables:
-  - name: debiodev # Kubernetes Namespace to deploy to. This variable is scoped to the DeployDev stage.
+  - name: 'debiodev' # Kubernetes Namespace to deploy to. This variable is scoped to the DeployDev stage.
     value: 'dev'
       
   jobs:
-  - deployment: DebioTestploy
+  - deployment: 'DebioTestploy'
     displayName: Deploy to Debio test job
     pool:
       vmImage: ubuntu-latest
 
-    environment: DebioDeployTest # name of the environment to target [env name.namespace]. This will pull in the Kubernetes service connection automatically
+    environment: 'DebioDeployTest' # name of the environment to target [env name.namespace]. This will pull in the Kubernetes service connection automatically
 
     strategy:
       runOnce:
